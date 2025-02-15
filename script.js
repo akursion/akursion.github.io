@@ -6,11 +6,11 @@ let language = 'english';
 const chapterImages = {
     english: {
         1: 23, // English Chapter 1 has 4 images
-        2: 3, // English Chapter 2 has 3 images
+        2: 26, // English Chapter 2 has 3 images
     },
     telugu: {
         1: 23, // Telugu Chapter 1 has 4 images
-        2: 3, // Telugu Chapter 2 has 3 images
+        2: 26, // Telugu Chapter 2 has 3 images
     }
 };
 
