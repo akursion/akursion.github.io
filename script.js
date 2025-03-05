@@ -5,12 +5,12 @@ let language = 'english';
 // Define the number of images per chapter
 const chapterImages = {
     english: {
-        1: 23, // English Chapter 1 has 4 images
-        2: 26, // English Chapter 2 has 3 images
+        1: 23, // English Chapter 1 has 23 images
+        2: 26, // English Chapter 2 has 26 images
     },
     telugu: {
-        1: 23, // Telugu Chapter 1 has 4 images
-        2: 26, // Telugu Chapter 2 has 3 images
+        1: 23, // Telugu Chapter 1 has 23 images
+        2: 26, // Telugu Chapter 2 has 26 images
     }
 };
 
@@ -32,12 +32,18 @@ function backToHome() {
     document.getElementById("chapter-list").classList.remove("hidden");
     currentImageIndex = 1;
     document.getElementById("comic-image").src = "";
+    document.getElementById("page-counter").textContent = "";
+    document.getElementById("next-chapter-button").classList.add("hidden");
 }
 
 // Function to load the current image
 function loadImage() {
     const imagePath = `images/${language}_chapter${currentChapter}/image${currentImageIndex}.png`;
     document.getElementById("comic-image").src = imagePath;
+
+    // Update the page counter
+    document.getElementById("page-counter").textContent = `${currentImageIndex}/${chapterImages[language][currentChapter]} pages`;
+
     updateButtonStates();
     scrollToTop();
 }
@@ -49,27 +55,42 @@ function scrollToTop() {
 
 // Navigate to the next image
 function nextImage() {
-    currentImageIndex++;
-    if (currentImageIndex > chapterImages[language][currentChapter]) {
-        currentImageIndex = chapterImages[language][currentChapter];
+    if (currentImageIndex < chapterImages[language][currentChapter]) {
+        currentImageIndex++;
+        loadImage();
     }
-    loadImage();
 }
 
 // Navigate to the previous image
 function prevImage() {
-    currentImageIndex--;
-    if (currentImageIndex < 1) {
-        currentImageIndex = 1;
+    if (currentImageIndex > 1) {
+        currentImageIndex--;
+        loadImage();
     }
-    loadImage();
+}
+
+// Function to move to the next chapter
+function nextChapter() {
+    if (chapterImages[language][currentChapter + 1]) {
+        openChapter(currentChapter + 1, language);
+    } else {
+        alert("No more chapters available.");
+    }
 }
 
 // Update button states based on image index
 function updateButtonStates() {
     const prevButton = document.querySelector('.nav-button:nth-of-type(1)');
     const nextButton = document.querySelector('.nav-button:nth-of-type(2)');
-    
+    const nextChapterButton = document.getElementById("next-chapter-button");
+
     prevButton.disabled = currentImageIndex === 1;
     nextButton.disabled = currentImageIndex >= chapterImages[language][currentChapter];
+
+    // Show "Next Chapter" button only on the last page of the current chapter
+    if (currentImageIndex === chapterImages[language][currentChapter]) {
+        nextChapterButton.classList.remove("hidden");
+    } else {
+        nextChapterButton.classList.add("hidden");
+    }
 }
