@@ -7,10 +7,12 @@ const chapterImages = {
     english: {
         1: 23, // English Chapter 1 has 23 images
         2: 26, // English Chapter 2 has 26 images
+        3: 18,
     },
     telugu: {
         1: 23, // Telugu Chapter 1 has 23 images
         2: 26, // Telugu Chapter 2 has 26 images
+        3: 18,
     }
 };
 
