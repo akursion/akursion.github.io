@@ -1,44 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comic Viewer</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comic Viewer</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="container">
-        <header id="header">
-            <h1>Comic Viewer</h1>
-            <img src="images/comic-cover.jpg" alt="Comic Cover" class="cover-image">
-        </header>
-        
-        <div id="chapter-list">
-            <div class="column">
-                <h2>English Chapters</h2>
-                <div class="chapter" onclick="openChapter(1, 'english')">English Chapter 1</div>
-                <div class="chapter" onclick="openChapter(2, 'english')">English Chapter 2</div>
-                <div class="chapter" onclick="openChapter(3, 'english')">English Chapter 3</div>
-            </div>
-            <div class="column">
-                <h2>Telugu Chapters</h2>
-                <div class="chapter" onclick="openChapter(1, 'telugu')">Telugu Chapter 1</div>
-                <div class="chapter" onclick="openChapter(2, 'telugu')">Telugu Chapter 2</div> 
-                <div class="chapter" onclick="openChapter(3, 'telugu')">Telugu Chapter 3</div> 
-            </div>
-        </div>
+  <div class="container">
+    <header id="header">
+      <h1>Comic Viewer</h1>
+      <img src="images/comic-cover.jpg" alt="Comic Cover" class="cover-image" />
+    </header>
 
-        <div id="comic-viewer" class="hidden">
-            <img id="comic-image" src="" alt="Comic Page" onerror="this.onerror=null; this.src='images/icon.png';">
-            <p id="page-counter">1/1 pages</p>
-            <div class="button-group">
-                <button class="nav-button" onclick="prevImage()">Previous</button>
-                <button class="nav-button" onclick="nextImage()">Next</button>
-                <button class="nav-button" onclick="backToHome()">Back to Home</button>
-                <button id="next-chapter-button" class="nav-button hidden" onclick="nextChapter()">Next Chapter</button>
-            </div>
-        </div>
+    <div id="chapter-list">
+      <div class="column">
+        <h2>English Chapters</h2>
+        <div class="chapter" onclick="openChapter(1, 'english')">English Chapter 1</div>
+        <div class="chapter" onclick="openChapter(2, 'english')">English Chapter 2</div>
+        <div class="chapter" onclick="openChapter(3, 'english')">English Chapter 3</div>
+      </div>
+      <div class="column">
+        <h2>Telugu Chapters</h2>
+        <div class="chapter" onclick="openChapter(1, 'telugu')">Telugu Chapter 1</div>
+        <div class="chapter" onclick="openChapter(2, 'telugu')">Telugu Chapter 2</div>
+        <div class="chapter" onclick="openChapter(3, 'telugu')">Telugu Chapter 3</div>
+      </div>
     </div>
-    <script src="script.js"></script>
+
+    <div id="comic-viewer" class="hidden">
+      <div id="view-mode-toggle">
+        <button id="toggleViewMode" onclick="toggleViewMode()">Switch to Scroll View</button>
+      </div>
+
+      <div id="single-page-view">
+        <img id="comic-image" src="" alt="Comic Page" onerror="this.onerror=null; this.src='images/icon.png';">
+        <p id="page-counter">1/1 pages</p>
+      </div>
+
+      <div id="scroll-view" class="hidden"></div>
+
+      <div class="button-group">
+        <button class="nav-button" onclick="prevImage()">Previous</button>
+        <button class="nav-button" onclick="nextImage()">Next</button>
+        <button class="nav-button" onclick="backToHome()">Back to Home</button>
+        <button id="next-chapter-button" class="nav-button" onclick="nextChapter()">Next Chapter</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
