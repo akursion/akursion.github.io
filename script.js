@@ -4,8 +4,8 @@ let language = 'english';
 let isScrollView = false;
 
 const chapterImages = {
-  english: { 1: 23, 2: 26, 3: 18 },
-  telugu: { 1: 23, 2: 26, 3: 18 }
+  english: { 1: 23, 2: 26, 3: 18, 4: 42 },
+  telugu: { 1: 23, 2: 26, 3: 18, 4: 42 }
 };
 
 function openChapter(chapterNumber, selectedLanguage) {
