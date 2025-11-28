@@ -4,8 +4,8 @@ let language = 'english';
 let isScrollView = false;
 
 const chapterImages = {
-  english: { 1: 23, 2: 26, 3: 18, 4: 42 },
-  telugu: { 1: 23, 2: 26, 3: 18, 4: 42 }
+  english: { 1: 23, 2: 26, 3: 18, 4: 42, 5: 36 },
+  telugu: { 1: 23, 2: 26, 3: 18, 4: 42, 5: 36 }
 };
 
 function openChapter(chapterNumber, selectedLanguage) {
@@ -122,3 +122,4 @@ function loadScrollView() {
 
   scrollToTop();
 }
+
